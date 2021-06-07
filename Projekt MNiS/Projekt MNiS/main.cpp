@@ -160,8 +160,6 @@ void a_star (zmapa& mapa, std::pair<int, int> start, std::pair<int, int> end)
                     // Jezeli nastepny punkt jest meta, zakoncz wykonywanie algorytmu i narysuj sciezke do startu
                     if (newy == end.first && newx == end.second)
                     {
-                        std::cout << "Znaleziono droge!\n";
-
                         // Wyznaczenie dlugosci sciezki od startu do mety
                         float g;
                         if (newy == tpunkty.first) 
@@ -198,10 +196,14 @@ void a_star (zmapa& mapa, std::pair<int, int> start, std::pair<int, int> end)
 
                             aktx = newnewx;
                             akty = newnewy;
+
+                            print(mapa);
+                            system("cls");
                         }
 
                         // Zakonczenie dzialania algorytmu
-                        std::cout << g << "\n";
+                        std::cout << "Znaleziono droge!\n";
+                        std::cout << "Dlugosc: " << g << "\n";
                         print(mapa);
                         system("pause");
                         return;
@@ -322,7 +324,7 @@ int main()
         {0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0},
-        {0,0,0,1,1,1,1,1,0,0,0,1,0,0,0,1,0,0,0,1,1,0,1},
+        {0,0,0,1,1,1,1,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,3,0},
         {0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0},
